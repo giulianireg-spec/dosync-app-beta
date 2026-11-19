@@ -55,10 +55,10 @@ if [ -n "${DOSYNC_HUB_FILE:-}" ]; then           # para probar una versión loca
   cp "$DOSYNC_HUB_FILE" "$TMP/dosync-hub.js"; cp "$DOSYNC_HUB_FILE.sig" "$TMP/dosync-hub.js.sig"
   VERSION=$("$NODE" "$TMP/dosync-hub.js" version)
 else
-  TAG=$(curl -fsSL -H 'Accept: application/vnd.github+json' "https://api.github.com/repos/$REPO/releases?per_page=30" \
-    | "$NODE" -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const r=JSON.parse(s).filter(x=>!x.draft&&!x.prerelease&&/^hub-v\d+\.\d+\.\d+$/.test(x.tag_name)).map(x=>x.tag_name).sort((a,b)=>{const p=t=>t.slice(5).split(".").map(Number);const[x,y]=[p(a),p(b)];for(let i=0;i<3;i++)if(x[i]!==y[i])return y[i]-x[i];return 0});if(!r.length)process.exit(1);console.log(r[0])})') \
-    || fail "no encontré ninguna versión del hub publicada."
-  VERSION=${TAG#hub-v}
+  # La última versión la dice hub/latest.json del repositorio (sin el límite de la API de GitHub).
+  VERSION=$(curl -fsSL "https://raw.githubusercontent.com/$REPO/main/hub/latest.json" | sed -n 's/.*"version" *: *"\([0-9]*\.[0-9]*\.[0-9]*\)".*/\1/p')
+  [ -n "$VERSION" ] || fail "no encontré ninguna versión del hub publicada."
+  TAG="hub-v$VERSION"
   curl -fsSL "https://github.com/$REPO/releases/download/$TAG/dosync-hub.js" -o "$TMP/dosync-hub.js"
   curl -fsSL "https://github.com/$REPO/releases/download/$TAG/dosync-hub.js.sig" -o "$TMP/dosync-hub.js.sig"
 fi
