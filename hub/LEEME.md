@@ -47,21 +47,26 @@ habla a ese teléfono viejo y él maneja los aparatos de tu casa.
   pantalla rajada o la batería gastada: va a estar siempre enchufado.
 - Su **cargador**, en un enchufe cerca del router o donde el WiFi llegue bien.
 - El **WiFi de tu casa**, el mismo de tus aparatos.
-- No hace falta chip, ni línea, ni tu cuenta de Google.
+- No hace falta chip ni línea. Desde Google Play hace falta una cuenta de Google; con el APK de
+  este repositorio, ni eso.
 
 > Recomendado: si el teléfono tiene cosas tuyas, restablécelo de fábrica antes de empezar y úsalo
 > solo como hub.
 
 ### 1. Instalar DoSync en el teléfono viejo
 
-1. En el teléfono viejo, conectado al WiFi de tu casa, abre el navegador y entra a
-   **https://github.com/giulianireg-spec/dosync-app-beta/releases/latest**.
-2. Toca **DoSync-…apk** para bajarlo.
-3. Ábrelo. Android va a pedir permiso para instalar apps de esta fuente: toca **Configuración**,
-   activa **Permitir de esta fuente** y vuelve. Toca **Instalar**.
+Elige una de las dos formas (el modo hub está en las dos, desde la versión 0.3.1):
 
-> El modo hub está **solo en la versión de este repositorio**, no en la de Google Play. Tu
-> teléfono de siempre puede seguir con la versión de Play: se vincula igual.
+- **Desde Google Play** (se actualiza sola): en el teléfono viejo, con una cuenta de Google, sigue
+  los tres pasos de [Descargar](../LEEME.md#descargar) e instala DoSync.
+- **Desde este repositorio** (sin cuenta de Google):
+  1. En el teléfono viejo, conectado al WiFi de tu casa, abre el navegador y entra a
+     **https://github.com/giulianireg-spec/dosync-app-beta/releases/latest**.
+  2. Toca **DoSync-…apk** para bajarlo.
+  3. Ábrelo. Android va a pedir permiso para instalar apps de esta fuente: toca **Configuración**,
+     activa **Permitir de esta fuente** y vuelve. Toca **Instalar**.
+
+> Tu teléfono de siempre puede tener cualquiera de las dos versiones: se vinculan igual.
 
 ### 2. Prenderle el modo hub
 
@@ -133,9 +138,10 @@ casa: conectado por el relevo cifrado".
 
 ### Actualizaciones
 
-El catálogo de marcas y los códigos infrarrojos se actualizan solos. Cuando hay una versión nueva
-de la app, el teléfono viejo muestra un aviso: Android pide un toque para instalarla, así que
-conviene mirarlo de vez en cuando.
+El catálogo de marcas y los códigos infrarrojos se actualizan solos. La app, según de dónde la
+instalaste: **desde Google Play** se actualiza sola, como cualquier app (deja activadas las
+actualizaciones automáticas); **desde este repositorio**, el teléfono viejo muestra un aviso y
+Android pide un toque para instalarla, así que conviene mirarlo de vez en cuando.
 
 ### Dejar de usarlo como hub
 
@@ -155,8 +161,8 @@ En tu teléfono de siempre, **Ajustes → Hub DoSync → Desvincular** devuelve 
   activo" siga ahí.
 - **Se reinició y no responde**: si tiene PIN, patrón o contraseña, desbloquéalo una vez (ver el
   paso 5).
-- **No aparece "Este teléfono como hub" en Ajustes**: esa versión de DoSync es la de Google Play.
-  Instala la de este repositorio (paso 1).
+- **No aparece "Este teléfono como hub" en Ajustes**: esa versión de DoSync es anterior a la 0.3.1.
+  Actualízala (desde Google Play o con el APK de este repositorio).
 
 ---
 

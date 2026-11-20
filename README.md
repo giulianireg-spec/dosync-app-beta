@@ -34,7 +34,7 @@ are signed differently and don't update each other.
 ## DoSync hub (optional)
 
 If you want your home to keep responding when you leave with your phone, set up a **DoSync hub**:
-- **on an Android phone you no longer use**: install the DoSync APK on it and turn on
+- **on an Android phone you no longer use**: install DoSync on it (Google Play or the APK) and turn on
   **Settings → This phone as a hub**. It stays at home, plugged in and on Wi-Fi;
 - **or on a Raspberry Pi or an old computer**, with one command.
 
@@ -113,7 +113,7 @@ firmadas distinto y no se actualizan una a la otra.
 ## Hub DoSync (opcional)
 
 Si quieres que tu casa siga respondiendo cuando sales con el teléfono, arma un **hub DoSync**:
-- **en un teléfono Android que ya no usas**: instálale el APK de DoSync y prende
+- **en un teléfono Android que ya no usas**: instálale DoSync (de Google Play o el APK) y prende
   **Ajustes → Este teléfono como hub**. Queda en casa, enchufado y en el WiFi;
 - **o en una Raspberry Pi o una computadora vieja**, con un solo comando.
 

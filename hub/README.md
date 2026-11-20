@@ -48,21 +48,26 @@ talks to that old phone, and it controls the devices in your home.
   battery is fine: it will always be plugged in.
 - Its **charger**, in an outlet near the router or wherever the Wi-Fi reaches well.
 - Your **home Wi-Fi**, the same one your devices use.
-- No SIM card, phone line or Google account needed.
+- No SIM card or phone line needed. Google Play needs a Google account; the APK from this
+  repository doesn't even need that.
 
 > Recommended: if the phone has your personal stuff on it, factory reset it before you start and
 > use it only as a hub.
 
 ### 1. Install DoSync on the old phone
 
-1. On the old phone, connected to your home Wi-Fi, open the browser and go to
-   **https://github.com/giulianireg-spec/dosync-app-beta/releases/latest**.
-2. Tap **DoSync-…apk** to download it.
-3. Open it. Android will ask for permission to install apps from this source: tap **Settings**,
-   turn on **Allow from this source** and go back. Tap **Install**.
+Pick either way (hub mode is in both, from version 0.3.1):
 
-> Hub mode is **only in the version from this repository**, not in the Google Play one. Your
-> everyday phone can keep the Play version: it links the same way.
+- **From Google Play** (it updates itself): on the old phone, with a Google account, follow the
+  three steps under [Download](../README.md#download) and install DoSync.
+- **From this repository** (no Google account needed):
+  1. On the old phone, connected to your home Wi-Fi, open the browser and go to
+     **https://github.com/giulianireg-spec/dosync-app-beta/releases/latest**.
+  2. Tap **DoSync-…apk** to download it.
+  3. Open it. Android will ask for permission to install apps from this source: tap **Settings**,
+     turn on **Allow from this source** and go back. Tap **Install**.
+
+> Your everyday phone can have either version: they link the same way.
 
 ### 2. Turn on hub mode
 
@@ -135,9 +140,10 @@ home: connected through the encrypted relay".
 
 ### Updates
 
-The brand catalog and infrared codes update themselves. When there's a new version of the app,
-the old phone shows a notice: Android asks for a tap to install it, so it's worth checking on it
-now and then.
+The brand catalog and infrared codes update themselves. The app depends on where you installed
+it from: **from Google Play** it updates itself like any app (keep automatic updates on); **from
+this repository**, the old phone shows a notice and Android asks for a tap to install it, so it's
+worth checking on it now and then.
 
 ### Stop using it as a hub
 
@@ -156,8 +162,8 @@ On your everyday phone, **Settings → DoSync hub → Unlink** brings the device
   is still there.
 - **It restarted and doesn't respond**: if it has a PIN, pattern or password, unlock it once (see
   step 5).
-- **"This phone as a hub" isn't in Settings**: that DoSync is the Google Play version. Install the
-  one from this repository (step 1).
+- **"This phone as a hub" isn't in Settings**: that DoSync is older than 0.3.1. Update it (from
+  Google Play or with the APK from this repository).
 
 ---
 
