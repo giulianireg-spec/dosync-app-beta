@@ -2,8 +2,8 @@
 
 **[English](README.md)** · Español
 
-Un hub es un equipo que queda en tu casa (una Raspberry Pi, una computadora vieja, un mini PC) y
-maneja tus aparatos aunque el teléfono no esté. Es **opcional**: sin hub, el teléfono hace de hub,
+Un hub es un equipo que queda en tu casa (un teléfono Android que ya no usas, una Raspberry Pi,
+una computadora vieja) y maneja tus aparatos aunque el teléfono no esté. Es **opcional**: sin hub, el teléfono hace de hub,
 como siempre.
 
 Con un hub:
@@ -15,7 +15,152 @@ Con un hub:
 El hub no está en Google Play: se instala desde aquí. La app (de Play o de este repositorio) se
 vincula con él desde **Ajustes → Hub DoSync**.
 
+Hay dos formas de tener un hub; elige la que te quede más cómoda:
+
+| | Un teléfono viejo | Una Raspberry Pi o una computadora |
+|---|---|---|
+| Qué necesitas | un Android 8 o más nuevo y su cargador | un equipo con Linux siempre encendido |
+| Cómo se instala | bajas la app DoSync y tocas un botón | un comando en la terminal |
+| Bluetooth e infrarrojo | los del teléfono, si los tiene | con un Broadlink por WiFi |
+| Guía | [Un teléfono viejo como hub](#un-teléfono-viejo-como-hub) | [Qué necesitas](#qué-necesitas) y siguientes |
+
 ---
+
+## Un teléfono viejo como hub
+
+¿Te quedó un teléfono en un cajón cuando compraste uno nuevo? Dale una segunda vida: déjalo en
+casa, enchufado y en el WiFi, y será tu hub DoSync. Cuando salgas, tu teléfono de siempre le
+habla a ese teléfono viejo y él maneja los aparatos de tu casa.
+
+**Por qué conviene:**
+- **No compras nada.** Usas un teléfono que ya tienes.
+- **Se instala como cualquier app.** Sin terminal ni comandos: bajas DoSync y tocas un botón.
+- **Trae más hardware que una Raspberry.** Ya tiene WiFi y Bluetooth, y muchos (por ejemplo,
+  bastantes Xiaomi) traen emisor infrarrojo para aires y teles. Todo eso lo usa el hub.
+- **Tiene su propia batería.** Si se corta la luz, sigue funcionando un buen rato (mientras el
+  router también tenga energía).
+- **Es el mismo hub.** Corre el mismo motor que la app, se vincula igual que el de Raspberry y
+  responde fuera de casa por el mismo relevo cifrado.
+
+**Qué necesitas:**
+- Un teléfono **Android 8 o más nuevo** (más o menos, de 2017 en adelante). Puede tener la
+  pantalla rajada o la batería gastada: va a estar siempre enchufado.
+- Su **cargador**, en un enchufe cerca del router o donde el WiFi llegue bien.
+- El **WiFi de tu casa**, el mismo de tus aparatos.
+- No hace falta chip, ni línea, ni tu cuenta de Google.
+
+> Recomendado: si el teléfono tiene cosas tuyas, restablécelo de fábrica antes de empezar y úsalo
+> solo como hub.
+
+### 1. Instalar DoSync en el teléfono viejo
+
+1. En el teléfono viejo, conectado al WiFi de tu casa, abre el navegador y entra a
+   **https://github.com/giulianireg-spec/dosync-app-beta/releases/latest**.
+2. Toca **DoSync-…apk** para bajarlo.
+3. Ábrelo. Android va a pedir permiso para instalar apps de esta fuente: toca **Configuración**,
+   activa **Permitir de esta fuente** y vuelve. Toca **Instalar**.
+
+> El modo hub está **solo en la versión de este repositorio**, no en la de Google Play. Tu
+> teléfono de siempre puede seguir con la versión de Play: se vincula igual.
+
+### 2. Prenderle el modo hub
+
+1. Abre DoSync en el teléfono viejo y ve a **Ajustes → Este teléfono como hub**.
+2. Toca **Usar como hub** y confirma.
+3. Si Android pregunta si DoSync puede **mostrar notificaciones**, toca **Permitir**. La
+   notificación fija "Hub DoSync activo" es la que mantiene al hub funcionando.
+   Si después pregunta por **dispositivos cercanos** (Bluetooth), toca **Permitir** también: lo
+   usa para los aparatos Bluetooth que le pases.
+4. La app abre los ajustes de **batería**: busca DoSync y déjalo **Sin restricciones** (o "No
+   optimizar"). Si no, Android puede dormir al hub para ahorrar batería y dejaría de responder.
+5. Según la marca del teléfono, hay un permiso más. La app te dice cuál, pero son estos:
+
+| Marca | Qué activar |
+|---|---|
+| Xiaomi, Redmi, POCO | Ajustes → Apps → DoSync → **Autoinicio** activado, y Ahorro de batería → **Sin restricciones** |
+| Samsung | Ajustes → Batería → Límites de uso en segundo plano → **Apps que nunca se suspenden** → agregar DoSync |
+| Huawei, Honor | Ajustes → Batería → Inicio de aplicaciones → DoSync → **Gestionar manualmente**, con todo activado |
+| OPPO, realme, OnePlus | Ajustes → Batería → DoSync → **Permitir actividad en segundo plano** |
+| vivo | Ajustes → Batería → Consumo en segundo plano → DoSync → **Permitir** |
+| Motorola, Lenovo | Ajustes → Batería → Uso de batería de apps → DoSync → **Sin restricciones** |
+
+En la tarjeta **Este teléfono como hub** vas a ver:
+- "En la red de la casa: atiende en 192.168.…": el hub ya responde en tu WiFi.
+- "Fuera de casa: conectado al relevo cifrado": ya responde también desde afuera.
+- Un **código QR** y un código de 16 letras para vincular tu teléfono de siempre.
+
+### 3. Vincular tu teléfono de siempre
+
+Con tu teléfono de siempre **en el WiFi de tu casa**:
+
+1. Abre su **cámara** y apunta al QR que muestra el teléfono viejo. Toca el enlace: se abre DoSync
+   y pregunta si quieres vincular el hub. Toca **Vincular**.
+2. Si la cámara no abre la app: en DoSync ve a **Ajustes → Hub DoSync → Vincular un hub** y
+   escribe el código que aparece debajo del QR.
+
+El código vale **una sola vez y por 10 minutos**. Para vincular otro teléfono (el de tu pareja,
+por ejemplo) o si se venció, toca **Vincular otro teléfono** en el teléfono viejo.
+
+### 4. Pasarle tus aparatos
+
+En tu teléfono de siempre, ve a **Ajustes → Hub DoSync → Elegir qué aparatos maneja el hub**,
+marca los aparatos (o todos) y toca **Guardar**. Viajan cifrados, junto con lo que el hub necesita
+para manejarlos. **Solo los aparatos que le pasas se pueden manejar desde afuera.** Más detalles en
+[Pasarle tus aparatos al hub](#3-pasarle-tus-aparatos-al-hub).
+
+### 5. Dejarlo en su lugar
+
+- **Enchúfalo** y déjalo donde el WiFi llegue bien. Si tiene la opción de **cargar solo hasta el
+  80 %** (Samsung: "Proteger batería"; Xiaomi, Pixel y otros la tienen con nombres parecidos),
+  actívala: estar siempre al 100 % gasta la batería.
+- **Apaga la pantalla y olvídate.** No hace falta dejar DoSync abierto ni la pantalla encendida:
+  el hub sigue respondiendo con la pantalla apagada, la app cerrada y el teléfono en reposo,
+  mientras se vea la notificación "Hub DoSync activo".
+- **Si se reinicia o se corta la luz**, el hub vuelve solo al encender el teléfono, con los
+  teléfonos vinculados y los aparatos. Un detalle: si el teléfono tiene **PIN, patrón o
+  contraseña**, Android no deja arrancar ninguna app hasta que lo desbloqueas la primera vez
+  después de encenderlo. Como el teléfono viejo queda en casa, lo más cómodo es ponerle bloqueo de
+  pantalla **Ninguno** o **Deslizar** (Ajustes → Seguridad → Bloqueo de pantalla). Si prefieres
+  dejarle un PIN, desbloquéalo una vez cada vez que se reinicie.
+- Para que no moleste, puedes bajarle el volumen o ponerlo en "No molestar".
+
+### Fuera de casa
+
+Listo: cuando salgas, abre DoSync en tu teléfono de siempre y maneja tus aparatos como siempre.
+La app le habla al teléfono viejo a través del **relevo cifrado de DoSync**: no puede leer los
+mensajes y no hay que abrir puertos en el router. En **Ajustes → Hub DoSync** vas a ver "Fuera de
+casa: conectado por el relevo cifrado".
+
+### Actualizaciones
+
+El catálogo de marcas y los códigos infrarrojos se actualizan solos. Cuando hay una versión nueva
+de la app, el teléfono viejo muestra un aviso: Android pide un toque para instalarla, así que
+conviene mirarlo de vez en cuando.
+
+### Dejar de usarlo como hub
+
+En el teléfono viejo: **Ajustes → Este teléfono como hub → Dejar de usar como hub**.
+- **Apagar** lo detiene y guarda los teléfonos vinculados y los aparatos, por si lo vuelves a
+  prender.
+- **Apagar y borrar todo** borra las claves de los teléfonos vinculados y los aparatos.
+
+En tu teléfono de siempre, **Ajustes → Hub DoSync → Desvincular** devuelve los aparatos al teléfono.
+
+### Problemas comunes con un teléfono viejo
+
+- **"Fuera de casa: sin conexión con el relevo"**: el teléfono viejo no tiene internet. Revisa
+  que esté en el WiFi y que el WiFi tenga internet.
+- **Funciona un rato y después deja de responder**: Android lo está durmiendo. Revisa el paso 2
+  (batería **Sin restricciones** y el permiso de tu marca) y que la notificación "Hub DoSync
+  activo" siga ahí.
+- **Se reinició y no responde**: si tiene PIN, patrón o contraseña, desbloquéalo una vez (ver el
+  paso 5).
+- **No aparece "Este teléfono como hub" en Ajustes**: esa versión de DoSync es la de Google Play.
+  Instala la de este repositorio (paso 1).
+
+---
+
+# Hub en una Raspberry Pi o una computadora
 
 ## Qué necesitas
 

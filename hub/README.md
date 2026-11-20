@@ -2,8 +2,8 @@
 
 English · **[Español](LEEME.md)**
 
-A hub is a device that stays at home (a Raspberry Pi, an old computer, a mini PC) and controls
-your devices even when your phone isn't there. It is **optional**: without a hub, the phone is the
+A hub is a device that stays at home (an Android phone you no longer use, a Raspberry Pi, an old
+computer) and controls your devices even when your phone isn't there. It is **optional**: without a hub, the phone is the
 hub, as always.
 
 With a hub:
@@ -15,7 +15,153 @@ With a hub:
 The hub is not on Google Play: you install it from here. The app (from Play or from this
 repository) links to it in **Settings → DoSync hub**.
 
+There are two ways to have a hub; pick whichever suits you:
+
+| | An old phone | A Raspberry Pi or a computer |
+|---|---|---|
+| What you need | Android 8 or newer and its charger | a Linux device that stays on |
+| How to install it | download the DoSync app and tap a button | one command in the terminal |
+| Bluetooth and infrared | the phone's own, if it has them | through a Broadlink over Wi-Fi |
+| Guide | [An old phone as a hub](#an-old-phone-as-a-hub) | [What you need](#what-you-need) onwards |
+
 ---
+
+## An old phone as a hub
+
+Got a phone sitting in a drawer since you bought a new one? Give it a second life: leave it at
+home, plugged in and on Wi-Fi, and it becomes your DoSync hub. When you go out, your everyday phone
+talks to that old phone, and it controls the devices in your home.
+
+**Why it's worth it:**
+- **You don't buy anything.** You use a phone you already have.
+- **It installs like any app.** No terminal, no commands: download DoSync and tap a button.
+- **It has more hardware than a Raspberry Pi.** It already has Wi-Fi and Bluetooth, and many
+  phones (quite a few Xiaomi models, for example) have an infrared emitter for air conditioners
+  and TVs. The hub uses all of it.
+- **It has its own battery.** If the power goes out, it keeps working for a good while (as long as
+  your router has power too).
+- **It's the same hub.** It runs the same engine as the app, links the same way as the Raspberry Pi
+  hub and answers from outside through the same encrypted relay.
+
+**What you need:**
+- A phone with **Android 8 or newer** (roughly, from 2017 onwards). A cracked screen or a worn
+  battery is fine: it will always be plugged in.
+- Its **charger**, in an outlet near the router or wherever the Wi-Fi reaches well.
+- Your **home Wi-Fi**, the same one your devices use.
+- No SIM card, phone line or Google account needed.
+
+> Recommended: if the phone has your personal stuff on it, factory reset it before you start and
+> use it only as a hub.
+
+### 1. Install DoSync on the old phone
+
+1. On the old phone, connected to your home Wi-Fi, open the browser and go to
+   **https://github.com/giulianireg-spec/dosync-app-beta/releases/latest**.
+2. Tap **DoSync-…apk** to download it.
+3. Open it. Android will ask for permission to install apps from this source: tap **Settings**,
+   turn on **Allow from this source** and go back. Tap **Install**.
+
+> Hub mode is **only in the version from this repository**, not in the Google Play one. Your
+> everyday phone can keep the Play version: it links the same way.
+
+### 2. Turn on hub mode
+
+1. Open DoSync on the old phone and go to **Settings → This phone as a hub**.
+2. Tap **Use as hub** and confirm.
+3. If Android asks whether DoSync can **send notifications**, tap **Allow**. The ongoing "DoSync
+   hub on" notification is what keeps the hub running.
+   If it then asks about **nearby devices** (Bluetooth), tap **Allow** too: it's used for the
+   Bluetooth devices you hand over.
+4. The app opens Android's **battery** settings: find DoSync and set it to **Unrestricted** (or
+   "Don't optimize"). Otherwise Android may put the hub to sleep to save battery and it would stop
+   responding.
+5. Depending on the phone's brand, there's one more permission. The app tells you which, but here
+   they are:
+
+| Brand | What to turn on |
+|---|---|
+| Xiaomi, Redmi, POCO | Settings → Apps → DoSync → **Autostart** on, and Battery saver → **No restrictions** |
+| Samsung | Settings → Battery → Background usage limits → **Never sleeping apps** → add DoSync |
+| Huawei, Honor | Settings → Battery → App launch → DoSync → **Manage manually**, everything on |
+| OPPO, realme, OnePlus | Settings → Battery → DoSync → **Allow background activity** |
+| vivo | Settings → Battery → Background power consumption → DoSync → **Allow** |
+| Motorola, Lenovo | Settings → Battery → App battery usage → DoSync → **Unrestricted** |
+
+On the **This phone as a hub** card you'll see:
+- "On your home network: answering at 192.168.…": the hub already answers on your Wi-Fi.
+- "Away from home: connected to the encrypted relay": it also answers from outside.
+- A **QR code** and a 16-character code to link your everyday phone.
+
+### 3. Link your everyday phone
+
+With your everyday phone **on your home Wi-Fi**:
+
+1. Open its **camera** and point it at the QR code on the old phone. Tap the link: DoSync opens and
+   asks whether you want to link the hub. Tap **Link**.
+2. If the camera doesn't open the app: in DoSync go to **Settings → DoSync hub → Link a hub** and
+   type the code shown under the QR code.
+
+The code is valid **once, for 10 minutes**. To link another phone (your partner's, for example) or
+if it expired, tap **Link another phone** on the old phone.
+
+### 4. Hand your devices over
+
+On your everyday phone, go to **Settings → DoSync hub → Choose which devices the hub controls**,
+check the devices (or all of them) and tap **Save**. They travel encrypted, together with what the
+hub needs to control them. **Only the devices you hand over can be controlled from outside.** More
+details in [Hand your devices over to the hub](#3-hand-your-devices-over-to-the-hub).
+
+### 5. Leave it in place
+
+- **Plug it in** and leave it where the Wi-Fi reaches well. If it can **limit charging to 80%**
+  (Samsung: "Protect battery"; Xiaomi, Pixel and others have it under similar names), turn that
+  on: sitting at 100% all the time wears the battery out.
+- **Turn the screen off and forget about it.** You don't need to keep DoSync open or the screen
+  on: the hub keeps answering with the screen off, the app closed and the phone idle, as long as
+  the "DoSync hub on" notification is there.
+- **If it restarts or the power goes out**, the hub comes back by itself when the phone turns on,
+  with its linked phones and devices. One detail: if the phone has a **PIN, pattern or password**,
+  Android doesn't let any app start until you unlock it once after it turns on. Since the old phone
+  stays at home, the easiest is to set its screen lock to **None** or **Swipe** (Settings →
+  Security → Screen lock). If you'd rather keep a PIN, unlock it once every time it restarts.
+- To keep it quiet, turn the volume down or set it to "Do not disturb".
+
+### Away from home
+
+That's it: when you go out, open DoSync on your everyday phone and control your devices as usual.
+The app talks to the old phone through the **DoSync encrypted relay**: it can't read the messages
+and you don't need to open ports on your router. In **Settings → DoSync hub** you'll see "Away from
+home: connected through the encrypted relay".
+
+### Updates
+
+The brand catalog and infrared codes update themselves. When there's a new version of the app,
+the old phone shows a notice: Android asks for a tap to install it, so it's worth checking on it
+now and then.
+
+### Stop using it as a hub
+
+On the old phone: **Settings → This phone as a hub → Stop using as hub**.
+- **Turn off** stops it and keeps the linked phones and devices, in case you turn it back on.
+- **Turn off and erase everything** erases the linked phones' keys and the devices.
+
+On your everyday phone, **Settings → DoSync hub → Unlink** brings the devices back to the phone.
+
+### Troubleshooting an old phone
+
+- **"Away from home: no connection to the relay"**: the old phone has no internet. Check that it's
+  on Wi-Fi and that the Wi-Fi has internet.
+- **It works for a while and then stops responding**: Android is putting it to sleep. Check step 2
+  (battery **Unrestricted** and your brand's permission) and that the "DoSync hub on" notification
+  is still there.
+- **It restarted and doesn't respond**: if it has a PIN, pattern or password, unlock it once (see
+  step 5).
+- **"This phone as a hub" isn't in Settings**: that DoSync is the Google Play version. Install the
+  one from this repository (step 1).
+
+---
+
+# Hub on a Raspberry Pi or a computer
 
 ## What you need
 
