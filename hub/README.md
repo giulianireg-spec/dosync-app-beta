@@ -216,8 +216,8 @@ new one:
 dosync-hub vincular
 ```
 
-You can also see the QR code from a browser on your computer or phone at `http://HUB-IP:47300`
-while linking is open.
+If the hub has a screen, you can also see the QR code in its browser at `http://localhost:47300`.
+For safety, that page doesn't show the code to other devices on the network.
 
 **Settings → DoSync hub** then shows "Connected", the hub version and how many devices it handles.
 
@@ -228,8 +228,14 @@ The hub only controls **the devices you transfer** from your phone, so you decid
 In **Settings → DoSync hub → Choose which devices the hub controls**, check the devices (or all of
 them) and tap **Save**. They travel over the encrypted channel together with what the hub needs to
 control them: brand accounts, certificate fingerprints and custom adapters. The app keeps showing
-them as before, with the note "Controlled by the DoSync hub", and their commands, scenes and
-routines go through the hub.
+them as before, with the note "Controlled by the DoSync hub", and their commands and scenes go
+through the hub. Routines at a time of day, or when another device changes, whose devices are all on
+the hub are **run by the hub itself**, even with the phone off ("when I arrive / leave" routines
+stay on the phone, which is the one that knows where you are).
+
+The first phone you link is the hub's **owner**; the next ones are **members**: they use the devices,
+but only an owner chooses what the hub controls, passes it routines and unlinks other phones. In
+**Settings → DoSync hub** you can see the linked phones, make another one owner, and see who did what.
 
 To give a device back to the phone, uncheck it and save. If you unlink the hub, they all go back to
 the phone.

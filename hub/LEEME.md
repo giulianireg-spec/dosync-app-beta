@@ -216,8 +216,8 @@ pide uno nuevo en el equipo del hub:
 dosync-hub vincular
 ```
 
-También puedes ver el QR desde el navegador de la computadora o del teléfono, entrando a
-`http://IP-DEL-HUB:47300` mientras la vinculación está abierta.
+Si el hub tiene pantalla, también puedes ver el QR en su navegador, en `http://localhost:47300`.
+Por seguridad, desde otro equipo de la red esa página no muestra el código.
 
 En **Ajustes → Hub DoSync** vas a ver "Conectado", la versión del hub y cuántos aparatos maneja.
 
@@ -229,8 +229,14 @@ cargo del hub.
 En **Ajustes → Hub DoSync → Elegir qué aparatos maneja el hub**, marca los aparatos (o todos) y
 toca **Guardar**. Viajan por el canal cifrado junto con lo que el hub necesita para manejarlos: las
 cuentas de las marcas, las huellas de los certificados y los adaptadores propios. La app los sigue
-mostrando como siempre, con la nota "Lo maneja el hub DoSync", y sus órdenes, escenas y rutinas van
-a través del hub.
+mostrando como siempre, con la nota "Lo maneja el hub DoSync", y sus órdenes y escenas van a través
+del hub. Las rutinas por horario, o de "cuando otro aparato cambia", con todos sus aparatos en el hub,
+**las corre el hub solo**, aunque el teléfono esté apagado (las de "al llegar / al irme" siguen en el
+teléfono, que es el que sabe dónde estás).
+
+El primer teléfono que vinculas es el **dueño** del hub; los que siguen, **miembros**: usan los
+aparatos, pero solo un dueño elige qué maneja el hub, le pasa rutinas y desvincula a otros teléfonos.
+En **Ajustes → Hub DoSync** ves los teléfonos vinculados, puedes hacer dueño a otro y ver quién hizo qué.
 
 Para devolver un aparato al teléfono, desmárcalo y guarda. Si desvinculas el hub, todos vuelven al
 teléfono.
