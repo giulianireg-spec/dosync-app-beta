@@ -280,6 +280,8 @@ infrared emitter:
 | Command | What it does |
 |---|---|
 | `dosync-hub vincular` | shows a new QR code to link a phone |
+| `dosync-hub teléfonos` | lists the linked phones and which ones are owners |
+| `dosync-hub dueño 2` | makes phone number 2 an owner (if you lost the owner's phone) |
 | `dosync-hub estado` | tells whether the hub is running and its version |
 | `dosync-hub version` | the installed version |
 | `sudo systemctl restart dosync-hub` | restarts the hub |

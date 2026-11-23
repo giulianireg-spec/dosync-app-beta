@@ -281,6 +281,8 @@ función sigue disponible y te dice qué sumar, como pasa en un teléfono sin em
 | Comando | Qué hace |
 |---|---|
 | `dosync-hub vincular` | muestra un QR nuevo para vincular un teléfono |
+| `dosync-hub teléfonos` | lista los teléfonos vinculados y cuáles son dueños |
+| `dosync-hub dueño 2` | hace dueño al teléfono número 2 (si perdiste el teléfono dueño) |
 | `dosync-hub estado` | dice si el hub está funcionando y qué versión tiene |
 | `dosync-hub version` | la versión instalada |
 | `sudo systemctl restart dosync-hub` | reinicia el hub |
