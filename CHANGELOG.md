@@ -1,5 +1,10 @@
 # Novedades · Changelog
 
+## 0.4.0
+
+- Más firme: si algo falla en una pantalla, la app no se cierra y "Reportar un problema" incluye qué falló (queda en tu teléfono hasta que lo mandas) · Sturdier: if something fails on a screen, the app doesn't close and "Report a problem" includes what failed (it stays on your phone until you send it).
+- Un dato guardado dañado ya no te deja sin rutinas, y el servicio en segundo plano vuelve a intentar solo si no puede arrancar · A damaged saved entry no longer leaves you without routines, and the background service retries by itself if it can't start.
+
 ## 0.3.3 · hub 0.1.8
 
 - Portones, puertas y alarmas conectados por un relé piden confirmación; cada aparato tiene "Pedir confirmación", "Es una luz" y "No apagar en grupo" · Gates, doors and alarms on a relay ask for confirmation; each device has "Ask for confirmation", "It's a light" and "Don't turn off with groups".
